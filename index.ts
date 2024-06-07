@@ -4,7 +4,7 @@ const DEBUG_PREFIX = "[Hotjar]";
 
 type InitProps = {
   id: string;
-  canUseDom: boolean;
+  canUseDOM: boolean;
   isEnabled: boolean;
   isDevelopment: boolean;
   version: number;
@@ -14,7 +14,7 @@ type InitProps = {
   };
 };
 
-function init({ id, canUseDOM, isEnabled, isDevelopment, version, userId, logger }) {
+function init({ id, canUseDOM, isEnabled, isDevelopment, version, userId, logger }: InitProps) {
   if (!canUseDOM) {
     return;
   }
