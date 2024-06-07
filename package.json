@@ -1,0 +1,11 @@
+{
+  "name": "vc-module-front-hotjar",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "git@github.com:VirtoCommerce/vc-module-front-hotjar.git",
+  "author": "Ivan Kalachikov <ivan.kalachikov@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@hotjar/browser": "^1.0.9"
+  }
+}
