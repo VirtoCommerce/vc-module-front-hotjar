@@ -2,6 +2,18 @@ import Hotjar from "@hotjar/browser";
 
 const DEBUG_PREFIX = "[Hotjar]";
 
+type InitProps = {
+  id: string;
+  canUseDom: boolean;
+  isEnabled: boolean;
+  isDevelopment: boolean;
+  version: number;
+  userId: string;
+  logger: {
+    debug: (prefix: string, message: string) => void;
+  };
+};
+
 function init({ id, canUseDOM, isEnabled, isDevelopment, version, userId, logger }) {
   if (!canUseDOM) {
     return;
