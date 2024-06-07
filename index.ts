@@ -21,7 +21,7 @@ function init({ id, canUseDOM, isEnabled, isDevelopment, version, userId, logger
 
   if (isEnabled && id && version) {
     if (!isDevelopment) {
-      Hotjar.init(Number(id, version);
+      Hotjar.init(Number(id), version);
       Hotjar.identify(userId, {});
     } else {
       logger.debug(DEBUG_PREFIX, "Hotjar enabled but not initialized");
