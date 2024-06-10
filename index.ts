@@ -21,7 +21,7 @@ type InitProps = {
   dependencies: DependenciesType;
 };
 
-function init({ settings, dependencies }: InitProps) {
+function initModule({ settings, dependencies }: InitProps) {
   const { id, version } = settings;
   const { canUseDOM, isDevelopment, userId, logger } = dependencies;
 
@@ -39,8 +39,8 @@ function init({ settings, dependencies }: InitProps) {
   }
 }
 
-export function useHotjar() {
+export function useHotjarModule() {
   return {
-    init,
+    initModule,
   };
 }
