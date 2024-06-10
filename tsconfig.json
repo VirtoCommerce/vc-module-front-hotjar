@@ -9,12 +9,8 @@
     "package.json"
   ],
   "exclude": [
-    "artifacts",
-    "assets",
-    "content",
     "client-app/**/__tests__/*",
     "client-app/**/*.(test|spec).*",
-    "storybook-static"
   ],
   "compilerOptions": {
     "composite": true,

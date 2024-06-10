@@ -2,24 +2,34 @@ import Hotjar from "@hotjar/browser";
 
 const DEBUG_PREFIX = "[Hotjar]";
 
-type InitProps = {
+type SettingsType = {
   id: string;
-  canUseDOM: boolean;
-  isEnabled: boolean;
-  isDevelopment: boolean;
   version: string;
+};
+
+type DependenciesType = {
+  canUseDOM: boolean;
+  isDevelopment: boolean;
   userId: string;
   logger: {
     debug: (prefix: string, message: string) => void;
   };
 };
 
-function init({ id, canUseDOM, isEnabled, isDevelopment, version, userId, logger }: InitProps) {
+type InitProps = {
+  settings: SettingsType;
+  dependencies: DependenciesType;
+};
+
+function init({ settings, dependencies }: InitProps) {
+  const { id, version } = settings;
+  const { canUseDOM, isDevelopment, userId, logger } = dependencies;
+
   if (!canUseDOM) {
     return;
   }
 
-  if (isEnabled && id && version) {
+  if (id && version) {
     if (!isDevelopment) {
       Hotjar.init(Number(id), Number(version));
       Hotjar.identify(userId, {});

@@ -57,5 +57,6 @@ init({
 
 Some information about license here.
 
+---
 
 If you find any issues or have questions, feel free to contribute or ask for help.
