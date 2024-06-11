@@ -9,7 +9,7 @@ const HOTJAR_SETTINGS_MAPPING = {
 type SettingValueType = string | number | boolean | null;
 type DependenciesType = {
   isDevelopment: boolean;
-  getModuleSettings: <T extends Record<string, string>>(settingsMapping: T) => { [K in T[keyof T]]: SettingValueType };
+  getModuleSettings: <T extends Record<string, string>>(settingsMapping: T) => { [K in T[keyof T]]?: SettingValueType };
   userId: string;
   logger: {
     debug: (prefix: string, message: string) => void;
