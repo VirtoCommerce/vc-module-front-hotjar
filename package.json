@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "main": "index.ts",
   "repository": "git@github.com:VirtoCommerce/vc-module-front-hotjar.git",
-  "author": "Ivan Kalachikov <ivan.kalachikov@gmail.com>",
-  "license": "MIT",
+  "author": {
+    "email": "info@virtocommerce.com",
+    "name": "Virto Commerce",
+    "url": "https://virtocommerce.com"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "type": "module",
   "dependencies": {
     "@hotjar/browser": "^1.0.9"
-  }
+  },
+  "engines": {
+    "node": ">=20.11.0 <21.0.0"
+  },
+  "packageManager": "yarn@4.1.0"
 }
