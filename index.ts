@@ -10,7 +10,9 @@ type SettingsType = Record<(typeof HOTJAR_SETTINGS_MAPPING)[keyof typeof HOTJAR_
 type SettingValueType = string | number | boolean | null;
 type DependenciesType = {
   isDevelopment: boolean;
-  getModuleSettings: (settingsMapping: Record<keyof typeof HOTJAR_SETTINGS_MAPPING, SettingValueType>) => SettingsType;
+  getModuleSettings: <T extends Record<string, string>>(
+    settingsMapping: T
+  ) => { [K in T[keyof T]]: SettingValueType } | null;
   userId: string;
   logger: {
     debug: (prefix: string, message: string) => void;
