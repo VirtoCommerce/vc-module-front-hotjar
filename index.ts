@@ -2,7 +2,6 @@ import Hotjar from "@hotjar/browser";
 
 const DEBUG_PREFIX = "[Hotjar]";
 const HOTJAR_SETTINGS_MAPPING = {
-  "Hotjar.EnableTracking": "isEnabled",
   "Hotjar.SiteId": "id",
   "Hotjar.SnippetVersion": "version",
 } as const;
@@ -18,7 +17,6 @@ type DependenciesType = {
   };
 };
 type InitProps = {
-  settings: SettingsType;
   dependencies: DependenciesType;
 };
 
@@ -28,17 +26,15 @@ function initModule({ dependencies }: InitProps) {
   const { id, version } = settings;
   const canUseDOM = !!(typeof window !== "undefined" && window.document?.createElement);
 
-  if (!canUseDOM) {
+  if (!canUseDOM || !(id && version)) {
     return;
   }
 
-  if (id && version) {
-    if (!isDevelopment) {
-      Hotjar.init(Number(id), Number(version));
-      Hotjar.identify(userId, {});
-    } else {
-      logger.debug(DEBUG_PREFIX, "Hotjar enabled but not initialized");
-    }
+  if (!isDevelopment) {
+    Hotjar.init(Number(id), Number(version));
+    Hotjar.identify(userId, {});
+  } else {
+    logger.debug(DEBUG_PREFIX, "Hotjar enabled but not initialized");
   }
 }
 
