@@ -6,7 +6,6 @@ const HOTJAR_SETTINGS_MAPPING = {
   "Hotjar.SnippetVersion": "version",
 } as const;
 
-type SettingsType = Record<(typeof HOTJAR_SETTINGS_MAPPING)[keyof typeof HOTJAR_SETTINGS_MAPPING], SettingValueType>;
 type SettingValueType = string | number | boolean | null;
 type DependenciesType = {
   isDevelopment: boolean;
