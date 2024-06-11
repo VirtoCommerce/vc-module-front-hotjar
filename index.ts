@@ -1,5 +1,3 @@
-import Hotjar from "@hotjar/browser";
-
 const DEBUG_PREFIX = "[Hotjar]";
 const HOTJAR_SETTINGS_MAPPING = {
   "Hotjar.SiteId": "id",
@@ -19,7 +17,7 @@ type InitProps = {
   dependencies: DependenciesType;
 };
 
-function initModule({ dependencies }: InitProps) {
+async function initModule({ dependencies }: InitProps) {
   const { getModuleSettings, isDevelopment, userId, logger } = dependencies;
   const settings = getModuleSettings(HOTJAR_SETTINGS_MAPPING);
   const { id, version } = settings;
@@ -30,6 +28,7 @@ function initModule({ dependencies }: InitProps) {
   }
 
   if (!isDevelopment) {
+    const Hotjar = (await import("@hotjar/browser")).default;
     Hotjar.init(Number(id), Number(version));
     Hotjar.identify(userId, {});
   } else {
