@@ -1,62 +1,67 @@
 # Hotjar Module For VirtoCommerce Frontend
 
-This module is designed for use with the VirtoCommerce frontend theme. It provides a simple interface to initialize and use Hotjar, a behavior analytics tool that helps you understand your users by providing insights through heatmaps, session recordings, and surveys.
+This module is designed for use with the VirtoCommerce frontend app. It provides a simple interface to initialize and use Hotjar, a behavior analytics tool that helps you understand your users by providing insights through heatmaps, session recordings, and surveys.
 
 ## Installation
 
+install the latest version
+
 ```bash
-yarn vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git
+yarn add vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git
 ```
 
 or install a specific version
 
 ```bash
-yarn vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git#v1.0.0
+yarn add vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git#v1.0.0
 ```
 
 ## Usage
 
 ### Import the Module
 
-Import the `useHotjar` composable in your Vue component:
+Import the `useHotjarModule` composable in your Vue component:
 
 ```ts
-import { useHotjar } from "vc-module-front-hotjar";
+import { useHotjarModule } from "vc-module-front-hotjar";
 ```
 
 but preferably use async import
 
 ```ts
-const { useHotjar } = await import("vc-module-front-hotjar");
+const { useHotjarModule } = await import("vc-module-front-hotjar");
 ```
 
 ### Initialize Hotjar
 
-To initialize Hotjar, call the `init` method with the appropriate properties:
+To initialize Hotjar, call the `initModule` method with the appropriate properties:
 
 ```ts
-const { init } = useHotjar();
+const { initModule } = useHotjarModule();
 
-init({
-  id: "your-hotjar-site-id",
-  canUseDOM: true, // Check if DOM is available
-  isEnabled: true, // Enable or disable Hotjar
-  isDevelopment: false, // Set to true for development mode
-  version: "your-hotjar-version",
-  userId: "unique-user-id",
-  logger: {
-    // Pass error handler with the following interface
-    debug: (prefix, message) => {
-      console.debug(prefix, message);
-    },
+initModule({
+  settings: {
+    id: "hotjar_site_id",
+    version: "6",
+  },
+  dependencies: {
+    canUseDOM,
+    isDevelopment: IS_DEVELOPMENT,
+    logger: Logger,
+    userId: user.value.id,
   },
 });
 ```
 
+## Links
+
+- [Hotjar](https://www.hotjar.com/)
+- [Hotjar Module](https://github.com/VirtoCommerce/vc-module-hotjar)
+
 ## License
 
-Some information about license here.
+Copyright (c) Virto Solutions LTD. All rights reserved.
 
----
-
-If you find any issues or have questions, feel free to contribute or ask for help.
+This software is licensed under the Virto Commerce Open Software License (the "License"); you
+may not use this file except in compliance with the License. You may
+obtain a copy of the License at http://virtocommerce.com/opensourcelicense.
