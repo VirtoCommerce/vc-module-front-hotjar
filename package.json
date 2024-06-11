@@ -1,5 +1,5 @@
 {
-  "name": "vc-module-front-hotjar",
+  "name": "@vc-modules-front/hotjar",
   "version": "1.0.0",
   "main": "index.ts",
   "repository": "git@github.com:VirtoCommerce/vc-module-front-hotjar.git",

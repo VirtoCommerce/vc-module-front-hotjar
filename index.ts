@@ -1,29 +1,32 @@
 import Hotjar from "@hotjar/browser";
 
 const DEBUG_PREFIX = "[Hotjar]";
+const HOTJAR_SETTINGS_MAPPING = {
+  "Hotjar.EnableTracking": "isEnabled",
+  "Hotjar.SiteId": "id",
+  "Hotjar.SnippetVersion": "version",
+} as const;
 
-type SettingsType = {
-  id: string;
-  version: string;
-};
-
+type SettingsType = Record<(typeof HOTJAR_SETTINGS_MAPPING)[keyof typeof HOTJAR_SETTINGS_MAPPING], SettingValueType>;
+type SettingValueType = string | number | boolean | null;
 type DependenciesType = {
-  canUseDOM: boolean;
   isDevelopment: boolean;
+  getModuleSettings: (settingsMapping: Record<keyof typeof HOTJAR_SETTINGS_MAPPING, SettingValueType>) => SettingsType;
   userId: string;
   logger: {
     debug: (prefix: string, message: string) => void;
   };
 };
-
 type InitProps = {
   settings: SettingsType;
   dependencies: DependenciesType;
 };
 
-function initModule({ settings, dependencies }: InitProps) {
+function initModule({ dependencies }: InitProps) {
+  const { getModuleSettings, isDevelopment, userId, logger } = dependencies;
+  const settings = getModuleSettings(HOTJAR_SETTINGS_MAPPING);
   const { id, version } = settings;
-  const { canUseDOM, isDevelopment, userId, logger } = dependencies;
+  const canUseDOM = !!(typeof window !== "undefined" && window.document?.createElement);
 
   if (!canUseDOM) {
     return;
