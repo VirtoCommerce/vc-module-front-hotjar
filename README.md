@@ -7,13 +7,13 @@ This module is designed for use with the VirtoCommerce frontend app. It provides
 install the latest version
 
 ```bash
-yarn add vc-modules-front-hotjar
+yarn add @virto-commerce/front-modules-hotjar
 ```
 
 or install a specific version
 
 ```bash
-yarn add vc-modules-front-hotjar@1.0.1
+yarn add @virto-commerce/front-modules-hotjar@1.0.0
 ```
 
 ## Usage
@@ -23,13 +23,13 @@ yarn add vc-modules-front-hotjar@1.0.1
 Import the `useHotjarModule` composable in your Vue component:
 
 ```ts
-import { useHotjarModule } from "vc-modules-front-hotjar";
+import { useHotjarModule } from "@virto-commerce/front-modules-hotjar";
 ```
 
 but preferably use async import
 
 ```ts
-const { useHotjarModule } = await import("vc-modules-front-hotjar");
+const { useHotjarModule } = await import("@virto-commerce/front-modules-hotjar");
 ```
 
 ### Initialize Hotjar
@@ -51,7 +51,7 @@ initModule({
 
 - [Hotjar](https://www.hotjar.com/)
 - [Hotjar Module](https://github.com/VirtoCommerce/vc-module-hotjar)
-- [Npm module](https://www.npmjs.com/package/vc-modules-front-hotjar)
+- [Npm module](https://www.npmjs.com/package/@virto-commerce/front-modules-hotjar)
 
 ## License
 
