@@ -2,7 +2,10 @@
   "name": "@vc-modules-front/hotjar",
   "version": "1.0.0",
   "main": "index.ts",
-  "repository": "git@github.com:VirtoCommerce/vc-module-front-hotjar.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/VirtoCommerce/vc-module-front-hotjar.git"
+  },
   "author": {
     "email": "info@virtocommerce.com",
     "name": "Virto Commerce",
