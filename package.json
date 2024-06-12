@@ -1,5 +1,5 @@
 {
-  "name": "@vc-modules-front/hotjar",
+  "name": "vc-modules-front-hotjar",
   "version": "1.0.0",
   "main": "index.ts",
   "repository": {
