@@ -13,12 +13,8 @@ type DependenciesType = {
     debug: (prefix: string, message: string) => void;
   };
 };
-type InitPropsType = {
-  dependencies: DependenciesType;
-};
 
-async function initModule({ dependencies }: InitPropsType) {
-  const { getModuleSettings, isDevelopment, userId, logger } = dependencies;
+async function initModule({ getModuleSettings, isDevelopment, userId, logger }: DependenciesType) {
   const settings = getModuleSettings(HOTJAR_SETTINGS_MAPPING);
   const { id, version } = settings;
   const canUseDOM = !!(typeof window !== "undefined" && window.document?.createElement);
