@@ -32,5 +32,11 @@
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^3.3.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "keywords": [
+    "VirtoCommerce",
+    "Hotjar",
+    "Frontend",
+    "Module"
+  ]
 }
