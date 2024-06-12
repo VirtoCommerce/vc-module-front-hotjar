@@ -1,6 +1,6 @@
 {
   "name": "vc-modules-front-hotjar",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "index.ts",
   "repository": {
     "type": "git",
