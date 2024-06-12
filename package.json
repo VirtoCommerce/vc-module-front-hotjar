@@ -1,6 +1,6 @@
 {
-  "name": "vc-modules-front-hotjar",
-  "version": "1.0.13",
+  "name": "@virto-commerce/front-modules-hotjar",
+  "version": "1.0.0",
   "main": "index.ts",
   "repository": {
     "type": "git",

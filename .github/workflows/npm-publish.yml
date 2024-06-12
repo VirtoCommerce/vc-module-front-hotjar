@@ -34,5 +34,6 @@ jobs:
           node-version: 20.11.0
           registry-url: https://registry.npmjs.org/
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: npm unpublish vc-modules-front-hotjar --force
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
