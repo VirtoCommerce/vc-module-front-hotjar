@@ -7,13 +7,13 @@ This module is designed for use with the VirtoCommerce frontend app. It provides
 install the latest version
 
 ```bash
-yarn add vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git
+yarn add vc-modules-front-hotjar
 ```
 
 or install a specific version
 
 ```bash
-yarn add vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hotjar.git#v1.0.0
+yarn add vc-modules-front-hotjar@1.0.1
 ```
 
 ## Usage
@@ -23,13 +23,13 @@ yarn add vc-module-front-hotjar@git@github.com:VirtoCommerce/vc-module-front-hot
 Import the `useHotjarModule` composable in your Vue component:
 
 ```ts
-import { useHotjarModule } from "vc-module-front-hotjar";
+import { useHotjarModule } from "vc-modules-front-hotjar";
 ```
 
 but preferably use async import
 
 ```ts
-const { useHotjarModule } = await import("vc-module-front-hotjar");
+const { useHotjarModule } = await import("vc-modules-front-hotjar");
 ```
 
 ### Initialize Hotjar
@@ -40,16 +40,10 @@ To initialize Hotjar, call the `initModule` method with the appropriate properti
 const { initModule } = useHotjarModule();
 
 initModule({
-  settings: {
-    id: "hotjar_site_id",
-    version: "6",
-  },
-  dependencies: {
-    canUseDOM,
-    isDevelopment: IS_DEVELOPMENT,
-    logger: Logger,
-    userId: user.value.id,
-  },
+  getModuleSettings,
+  isDevelopment: IS_DEVELOPMENT,
+  logger: Logger,
+  userId: user.value.id,
 });
 ```
 
@@ -57,6 +51,7 @@ initModule({
 
 - [Hotjar](https://www.hotjar.com/)
 - [Hotjar Module](https://github.com/VirtoCommerce/vc-module-hotjar)
+- [Npm module](https://www.npmjs.com/package/vc-modules-front-hotjar)
 
 ## License
 
