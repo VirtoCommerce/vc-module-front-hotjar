@@ -38,5 +38,10 @@
     "Hotjar",
     "Frontend",
     "Module"
+  ],
+  "files": [
+    "index.ts",
+    "README.md",
+    "LICENSE.txt"
   ]
 }
