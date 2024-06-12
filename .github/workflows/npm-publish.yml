@@ -15,7 +15,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn install
+      - name: Install dependencies
+        run: yarn install
+      - name: Linter
+        run: yarn lint
+      - name: Types check
+        run: yarn validate:types
+      - name: Prettier
+        run: yarn prettier
 
   publish-npm:
     needs: build
