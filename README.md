@@ -47,6 +47,10 @@ initModule({
 });
 ```
 
+## Publishing the Package
+
+To publish the package, draft a new release. Ensure that that the version in `package.json` was changed accordingly in advance. After release package will be published automatically. On any concerns please see workflows in the **Actions** tab.
+
 ## Links
 
 - [Hotjar](https://www.hotjar.com/)
