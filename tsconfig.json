@@ -1,8 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["./**/*"],
+  "include": ["./**/*.ts"],
   "compilerOptions": {
-    "target": "es5",
+    "declaration": true,
+    "outDir": "./dist",
     "lib": ["ES2015", "DOM"]
   },
   "exclude": ["node_modules"]
