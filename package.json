@@ -1,6 +1,6 @@
 {
   "name": "@virto-commerce/front-modules-hotjar",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
@@ -16,9 +16,6 @@
   "type": "module",
   "dependencies": {
     "@hotjar/browser": "^1.0.9"
-  },
-  "engines": {
-    "node": ">=20.11.0 <21.0.0"
   },
   "scripts": {
     "validate:types": "tsc --noEmit",
